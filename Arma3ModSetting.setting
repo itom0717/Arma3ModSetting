@@ -1,0 +1,38 @@
+;------------------------------------
+;Arma3ModSetting用設定ファイル
+;------------------------------------
+;
+; ;(セミコロン)はコメント
+;
+;["MODフォルダ"]
+;optionalsPath = "optionalフォルダ名"
+;add optionalからaddonsへ追加するファイル
+;del addonsから削除するファイル
+; ・
+; ・
+; ・
+;["別のMODフォルダ"]
+;optionalsPath = "optionalフォルダ名"
+;add optionalからaddonsへ追加するファイル
+;del addonsから削除するファイル
+; ・
+; ・
+; ・
+
+
+
+[@ace3]
+optionalsPath = optionals
+
+add ace_compat_asdg.pbo
+add ace_compat_rh_acc.pbo
+add ace_compat_rhs_afrf3.pbo
+add ace_compat_rhs_usf3.pbo
+add ace_tracers.pbo
+
+
+[@sma]
+optionalsPath = optional
+add sma_vanilla_ammo.pbo
+
+
