@@ -5,26 +5,31 @@ This program sets the options file for each mod of Arma3.
 このプログラムは Arma3 の各 modのオプションファイルを設定します。  
 
 
-##Development environment
+## 開発環境
  Microsoft Visual Studio Community 2015
 
-## Requirement
+## 必要ランタイム
  .NET Framework 4.5  
 
-## Usage
+## 使い方
 
-@ace3などが存在するmodフォルダと同じところに@mod_settingフォルダを置いてArma3ModSetting.exe を実行  
+@ace3などが存在するmodフォルダと同じところに @mod_settingフォルダ(フォルダ名は任意)を置いてArma3ModSetting.exe を実行  
 
+***
 MODフォルダ  
-&nbsp;+-- @ace3  
-&nbsp;&nbsp;&nbsp;+-- addons  
-&nbsp;&nbsp;&nbsp;+-- optionals  
-&nbsp;+-- @sma  
-&nbsp;&nbsp;&nbsp;+-- addons  
-&nbsp;&nbsp;&nbsp;+-- optional  
-&nbsp;+-- @mod_setting  
-&nbsp;&nbsp;&nbsp;+-- Arma3ModSetting.exe       <---- このファイルを実行  
-&nbsp;&nbsp;&nbsp;+-- Arma3ModSetting.setting   <---- 設定ファイル  
+　　+-- @ace3  
+　　　　+-- addons  
+　　　　+-- optionals  
+　　+-- @sma  
+　　　　+-- addons  
+　　　　+-- optional  
+　　+-- @mod_setting(フォルダ名は任意)  
+　　　　+-- Arma3ModSetting.exe       <---- このファイルを実行  
+　　　　+-- Arma3ModSetting.setting   <---- 設定ファイル  
+***
+
+##リセット機能
+リセット機能は、Optionフォルダに存在する*.pboをaddonsフォルダから削除します。
 
 
 

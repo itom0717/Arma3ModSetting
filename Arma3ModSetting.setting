@@ -4,6 +4,8 @@
 ;
 ; ;(セミコロン)はコメント
 ;
+;ServerInfo=Server Info
+;
 ;["MODフォルダ"]
 ;optionalsPath = "optionalフォルダ名"
 ;add optionalからaddonsへ追加するファイル
@@ -19,6 +21,8 @@
 ; ・
 ; ・
 
+;Server Info
+ServerInfo=[TrashBox]ARMA3 Server
 
 
 [@ace3]
