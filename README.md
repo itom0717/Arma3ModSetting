@@ -13,7 +13,11 @@ This program sets the options file for each mod of Arma3.
 
 ## 使い方
 
-@ace3などが存在するmodフォルダと同じところに @mod_settingフォルダ(フォルダ名は任意)を置いてArma3ModSetting.exe を実行  
+① Arma3ModSetting.setting をUTF-8対応テキストエディタで編集する。  
+　　編集内容はArma3ModSetting.setting内に記載
+
+② @ace3などが存在するmodフォルダと同じところに @mod_settingフォルダ(フォルダ名は任意)を置いてArma3ModSetting.exe を実行  
+  
 
 ***
 MODフォルダ  
