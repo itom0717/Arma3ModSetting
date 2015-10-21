@@ -44,7 +44,7 @@ Partial Class MainForm
     Me.CloseButton.Location = New System.Drawing.Point(530, 387)
     Me.CloseButton.Name = "CloseButton"
     Me.CloseButton.Size = New System.Drawing.Size(75, 23)
-    Me.CloseButton.TabIndex = 0
+    Me.CloseButton.TabIndex = 6
     Me.CloseButton.Text = "Close"
     Me.CloseButton.UseVisualStyleBackColor = True
     '
@@ -54,7 +54,7 @@ Partial Class MainForm
     Me.OKButton.Location = New System.Drawing.Point(12, 387)
     Me.OKButton.Name = "OKButton"
     Me.OKButton.Size = New System.Drawing.Size(75, 23)
-    Me.OKButton.TabIndex = 1
+    Me.OKButton.TabIndex = 2
     Me.OKButton.Text = "Go"
     Me.OKButton.UseVisualStyleBackColor = True
     '
@@ -65,7 +65,7 @@ Partial Class MainForm
     Me.CreateShortCutCheckBox.Location = New System.Drawing.Point(93, 391)
     Me.CreateShortCutCheckBox.Name = "CreateShortCutCheckBox"
     Me.CreateShortCutCheckBox.Size = New System.Drawing.Size(156, 16)
-    Me.CreateShortCutCheckBox.TabIndex = 2
+    Me.CreateShortCutCheckBox.TabIndex = 3
     Me.CreateShortCutCheckBox.Text = "Create desktop shortcuts."
     Me.CreateShortCutCheckBox.UseVisualStyleBackColor = True
     '
@@ -78,7 +78,7 @@ Partial Class MainForm
     Me.LogListBox.Location = New System.Drawing.Point(12, 276)
     Me.LogListBox.Name = "LogListBox"
     Me.LogListBox.Size = New System.Drawing.Size(593, 100)
-    Me.LogListBox.TabIndex = 3
+    Me.LogListBox.TabIndex = 1
     '
     'ModTreeView
     '
@@ -91,7 +91,7 @@ Partial Class MainForm
     Me.ModTreeView.Name = "ModTreeView"
     Me.ModTreeView.SelectedImageIndex = 0
     Me.ModTreeView.Size = New System.Drawing.Size(593, 258)
-    Me.ModTreeView.TabIndex = 4
+    Me.ModTreeView.TabIndex = 0
     '
     'TreeViewImageList
     '
@@ -136,7 +136,7 @@ Partial Class MainForm
     Me.ResetButton.Location = New System.Drawing.Point(339, 387)
     Me.ResetButton.Name = "ResetButton"
     Me.ResetButton.Size = New System.Drawing.Size(71, 23)
-    Me.ResetButton.TabIndex = 7
+    Me.ResetButton.TabIndex = 4
     Me.ResetButton.Text = "Reset"
     Me.ResetButton.UseVisualStyleBackColor = True
     '
