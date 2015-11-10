@@ -135,6 +135,9 @@
   <data name="DelText" xml:space="preserve">
     <value>無効</value>
   </data>
+  <data name="ErrMsgNoServerList" xml:space="preserve">
+    <value>サーバーリストがありませんので終了します。</value>
+  </data>
   <data name="ErrMsgNotFoundModAddonsPath" xml:space="preserve">
     <value>Addonsフォルダが見つかりません。（{0}）</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="ErrMsgNotFoundModPath" xml:space="preserve">
     <value>MODフォルダが見つかりません。（{0}）</value>
+  </data>
+  <data name="ErrMsgSettingFilesNotDownload" xml:space="preserve">
+    <value>設定ファイルがダウンロード出来ません。</value>
   </data>
   <data name="ErrMsgSettingFilesNotFound" xml:space="preserve">
     <value>設定ファイルが見つかりません。</value>
@@ -173,5 +179,11 @@
   </data>
   <data name="ResetButton" xml:space="preserve">
     <value>リセット</value>
+  </data>
+  <data name="SettingFileDownloadComplate" xml:space="preserve">
+    <value>設定ファイルのダウンロードを完了</value>
+  </data>
+  <data name="SettingFileDownloading" xml:space="preserve">
+    <value>設定ファイルのダウンロード中...</value>
   </data>
 </root>

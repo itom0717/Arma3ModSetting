@@ -135,6 +135,9 @@
   <data name="DelText" xml:space="preserve">
     <value>DEL</value>
   </data>
+  <data name="ErrMsgNoServerList" xml:space="preserve">
+    <value>It will end because there is no server list.</value>
+  </data>
   <data name="ErrMsgNotFoundModAddonsPath" xml:space="preserve">
     <value>Addons folder can not be found. ({0})</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="ErrMsgNotFoundModPath" xml:space="preserve">
     <value>MOD Path not found. ({0})</value>
+  </data>
+  <data name="ErrMsgSettingFilesNotDownload" xml:space="preserve">
+    <value>Configuration files can not be downloaded.</value>
   </data>
   <data name="ErrMsgSettingFilesNotFound" xml:space="preserve">
     <value>Setting files not found.</value>
@@ -173,5 +179,11 @@
   </data>
   <data name="ResetButton" xml:space="preserve">
     <value>Reset</value>
+  </data>
+  <data name="SettingFileDownloadComplate" xml:space="preserve">
+    <value>To complete the download of the configuration file</value>
+  </data>
+  <data name="SettingFileDownloading" xml:space="preserve">
+    <value>During the download of the configuration file ...</value>
   </data>
 </root>

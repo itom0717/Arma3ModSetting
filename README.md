@@ -13,11 +13,18 @@ This program sets the options file for each mod of Arma3.
 
 ## 使い方
 
-① Arma3ModSetting.setting をUTF-8対応テキストエディタで編集する。  
-　　編集内容はArma3ModSetting.setting内に記載
+① 設定ファイル（ファイル名は任意）をUTF-8対応テキストエディタで作成する。  
+   編集内容はDefaultSetting.cfgを参考に新規作成する  
+
+② ①で作成した設定ファイルをWebサーバーへアップする。  
+   アップしたURLをブラウザのアドレス欄に入力して表示またはダウンロードできることを確認する。
+
+③ ServerList.cfg を編集する。
+   ②でアップしたURLを記載する。
 
 ② @ace3などが存在するmodフォルダと同じところに @mod_settingフォルダ(フォルダ名は任意)を置いてArma3ModSetting.exe を実行  
-  
+
+
 
 ***
 MODフォルダ  
@@ -29,12 +36,13 @@ MODフォルダ
 　　　　+-- optional  
 　　+-- @mod_setting(フォルダ名は任意)  
 　　　　+-- Arma3ModSetting.exe       <---- このファイルを実行  
-　　　　+-- Arma3ModSetting.setting   <---- 設定ファイル  
+　　　　+-- ServerList.cfg            <---- サーバー設定ファイル  
+　　　　+-- ServerSetting.cfg         <---- 自動でダウンロードされます  
 ***
 
 ##リセット機能
-リセット機能は、Optionフォルダに存在する*.pboをaddonsフォルダから削除します。
-
+リセット機能は、Optionフォルダに存在する*.pboをaddonsフォルダから削除します。  
+（テスト機能ですので、不具合があった場合は、Play withSixで元に戻してください。）
 
 
 ## Licence

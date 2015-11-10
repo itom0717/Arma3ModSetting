@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ModInfo.vb" />
+    <Compile Include="Class\ServerList.vb" />
     <Compile Include="Common\File.vb" />
     <Compile Include="Common\HashtableEx.vb" />
     <Compile Include="Common\RandomString.vb" />
@@ -134,7 +135,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Arma3ModSetting.setting">
+    <None Include="DefaultSetting.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ServerList.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="icon\Applicaton.gfie" />

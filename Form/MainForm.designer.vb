@@ -35,13 +35,14 @@ Partial Class MainForm
     Me.ResetButton = New System.Windows.Forms.Button()
     Me.SetBackgroundWorker = New System.ComponentModel.BackgroundWorker()
     Me.ResetBackgroundWorker = New System.ComponentModel.BackgroundWorker()
+    Me.ServerListComboBox = New System.Windows.Forms.ComboBox()
     CType(Me.LoadingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.SuspendLayout()
     '
     'CloseButton
     '
     Me.CloseButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.CloseButton.Location = New System.Drawing.Point(530, 387)
+    Me.CloseButton.Location = New System.Drawing.Point(527, 376)
     Me.CloseButton.Name = "CloseButton"
     Me.CloseButton.Size = New System.Drawing.Size(75, 23)
     Me.CloseButton.TabIndex = 6
@@ -51,7 +52,7 @@ Partial Class MainForm
     'OKButton
     '
     Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-    Me.OKButton.Location = New System.Drawing.Point(12, 387)
+    Me.OKButton.Location = New System.Drawing.Point(12, 376)
     Me.OKButton.Name = "OKButton"
     Me.OKButton.Size = New System.Drawing.Size(75, 23)
     Me.OKButton.TabIndex = 2
@@ -62,7 +63,7 @@ Partial Class MainForm
     '
     Me.CreateShortCutCheckBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
     Me.CreateShortCutCheckBox.AutoSize = True
-    Me.CreateShortCutCheckBox.Location = New System.Drawing.Point(93, 391)
+    Me.CreateShortCutCheckBox.Location = New System.Drawing.Point(115, 380)
     Me.CreateShortCutCheckBox.Name = "CreateShortCutCheckBox"
     Me.CreateShortCutCheckBox.Size = New System.Drawing.Size(156, 16)
     Me.CreateShortCutCheckBox.TabIndex = 3
@@ -75,9 +76,9 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.LogListBox.FormattingEnabled = True
     Me.LogListBox.ItemHeight = 12
-    Me.LogListBox.Location = New System.Drawing.Point(12, 276)
+    Me.LogListBox.Location = New System.Drawing.Point(12, 265)
     Me.LogListBox.Name = "LogListBox"
-    Me.LogListBox.Size = New System.Drawing.Size(593, 100)
+    Me.LogListBox.Size = New System.Drawing.Size(590, 100)
     Me.LogListBox.TabIndex = 1
     '
     'ModTreeView
@@ -87,10 +88,10 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.ModTreeView.ImageIndex = 0
     Me.ModTreeView.ImageList = Me.TreeViewImageList
-    Me.ModTreeView.Location = New System.Drawing.Point(12, 12)
+    Me.ModTreeView.Location = New System.Drawing.Point(12, 42)
     Me.ModTreeView.Name = "ModTreeView"
     Me.ModTreeView.SelectedImageIndex = 0
-    Me.ModTreeView.Size = New System.Drawing.Size(593, 258)
+    Me.ModTreeView.Size = New System.Drawing.Size(590, 217)
     Me.ModTreeView.TabIndex = 0
     '
     'TreeViewImageList
@@ -108,7 +109,7 @@ Partial Class MainForm
     'GetModInfoButton
     '
     Me.GetModInfoButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.GetModInfoButton.Location = New System.Drawing.Point(416, 387)
+    Me.GetModInfoButton.Location = New System.Drawing.Point(413, 376)
     Me.GetModInfoButton.Name = "GetModInfoButton"
     Me.GetModInfoButton.Size = New System.Drawing.Size(108, 23)
     Me.GetModInfoButton.TabIndex = 5
@@ -125,7 +126,7 @@ Partial Class MainForm
     Me.LoadingPictureBox.Image = CType(resources.GetObject("LoadingPictureBox.Image"), System.Drawing.Image)
     Me.LoadingPictureBox.Location = New System.Drawing.Point(220, 75)
     Me.LoadingPictureBox.Name = "LoadingPictureBox"
-    Me.LoadingPictureBox.Size = New System.Drawing.Size(364, 260)
+    Me.LoadingPictureBox.Size = New System.Drawing.Size(361, 249)
     Me.LoadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
     Me.LoadingPictureBox.TabIndex = 6
     Me.LoadingPictureBox.TabStop = False
@@ -133,7 +134,7 @@ Partial Class MainForm
     'ResetButton
     '
     Me.ResetButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.ResetButton.Location = New System.Drawing.Point(339, 387)
+    Me.ResetButton.Location = New System.Drawing.Point(336, 376)
     Me.ResetButton.Name = "ResetButton"
     Me.ResetButton.Size = New System.Drawing.Size(71, 23)
     Me.ResetButton.TabIndex = 4
@@ -146,11 +147,24 @@ Partial Class MainForm
     'ResetBackgroundWorker
     '
     '
+    'ServerListComboBox
+    '
+    Me.ServerListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ServerListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+    Me.ServerListComboBox.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+    Me.ServerListComboBox.FormattingEnabled = True
+    Me.ServerListComboBox.Location = New System.Drawing.Point(12, 12)
+    Me.ServerListComboBox.Name = "ServerListComboBox"
+    Me.ServerListComboBox.Size = New System.Drawing.Size(590, 23)
+    Me.ServerListComboBox.TabIndex = 7
+    '
     'MainForm
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-    Me.ClientSize = New System.Drawing.Size(617, 424)
+    Me.ClientSize = New System.Drawing.Size(614, 413)
+    Me.Controls.Add(Me.ServerListComboBox)
     Me.Controls.Add(Me.ResetButton)
     Me.Controls.Add(Me.LoadingPictureBox)
     Me.Controls.Add(Me.GetModInfoButton)
@@ -183,4 +197,5 @@ Partial Class MainForm
   Friend WithEvents ResetButton As Button
   Friend WithEvents SetBackgroundWorker As System.ComponentModel.BackgroundWorker
   Friend WithEvents ResetBackgroundWorker As System.ComponentModel.BackgroundWorker
+  Friend WithEvents ServerListComboBox As ComboBox
 End Class

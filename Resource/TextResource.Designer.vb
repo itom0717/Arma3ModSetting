@@ -119,6 +119,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  It will end because there is no server list. に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Friend Shared ReadOnly Property ErrMsgNoServerList() As String
+            Get
+                Return ResourceManager.GetString("ErrMsgNoServerList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Addons folder can not be found. ({0}) に類似しているローカライズされた文字列を検索します。
         '''</summary>
         Friend Shared ReadOnly Property ErrMsgNotFoundModAddonsPath() As String
@@ -142,6 +151,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property ErrMsgNotFoundModPath() As String
             Get
                 Return ResourceManager.GetString("ErrMsgNotFoundModPath", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Configuration files can not be downloaded. に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Friend Shared ReadOnly Property ErrMsgSettingFilesNotDownload() As String
+            Get
+                Return ResourceManager.GetString("ErrMsgSettingFilesNotDownload", resourceCulture)
             End Get
         End Property
         
@@ -232,6 +250,24 @@ Namespace My.Resources
         Friend Shared ReadOnly Property ResetButton() As String
             Get
                 Return ResourceManager.GetString("ResetButton", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  To complete the download of the configuration file に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Friend Shared ReadOnly Property SettingFileDownloadComplate() As String
+            Get
+                Return ResourceManager.GetString("SettingFileDownloadComplate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  During the download of the configuration file ... に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Friend Shared ReadOnly Property SettingFileDownloading() As String
+            Get
+                Return ResourceManager.GetString("SettingFileDownloading", resourceCulture)
             End Get
         End Property
     End Class
