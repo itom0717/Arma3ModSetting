@@ -299,6 +299,7 @@ Public Class MainForm
       Dim serverNode As New TreeNode
       serverNode.Text = Me.SettingData.ServerInfo
       serverNode.ImageIndex = 6
+      serverNode.SelectedImageIndex = serverNode.ImageIndex
       Me.ModTreeView.Nodes.Add(serverNode)
 
 
@@ -311,10 +312,12 @@ Public Class MainForm
         Dim modNode As New TreeNode
         modNode.Text = modInfo.ModSetting.ModName
         modNode.ImageIndex = 0
+        modNode.SelectedImageIndex = modNode.ImageIndex
 
         '追加情報
         Dim addNode As New TreeNode
         addNode.ImageIndex = 1
+        addNode.SelectedImageIndex = addNode.ImageIndex
         addNode.Text = My.Resources.TextResource.AddText
 
         'nodeに追加
@@ -325,9 +328,11 @@ Public Class MainForm
           If modInfo.AddonsPathInfo.ExistsPbo(pbo) Then
             '存在する
             node.ImageIndex = 3
+            node.SelectedImageIndex = node.ImageIndex
           Else
             '存在しない
             node.ImageIndex = 4
+            node.SelectedImageIndex = node.ImageIndex
           End If
         Next
 
@@ -340,6 +345,7 @@ Public Class MainForm
         '削除情報
         Dim disableNode As New TreeNode
         disableNode.ImageIndex = 2
+        disableNode.SelectedImageIndex = disableNode.ImageIndex
         disableNode.Text = My.Resources.TextResource.DelText
 
         'nodeに追加
@@ -350,9 +356,11 @@ Public Class MainForm
           If modInfo.AddonsPathInfo.ExistsPbo(pbo) Then
             '存在する
             node.ImageIndex = 5
+            node.SelectedImageIndex = node.ImageIndex
           Else
             '存在しない
             node.ImageIndex = 3
+            node.SelectedImageIndex = node.ImageIndex
           End If
 
         Next
