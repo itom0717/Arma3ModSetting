@@ -140,6 +140,7 @@ Partial Class MainForm
     Me.ResetButton.TabIndex = 4
     Me.ResetButton.Text = "Reset"
     Me.ResetButton.UseVisualStyleBackColor = True
+    Me.ResetButton.Visible = False
     '
     'SetBackgroundWorker
     '

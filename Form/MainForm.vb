@@ -36,8 +36,8 @@ Public Class MainForm
     Try
 
 
-      'タイトル設定
-      Me.Text = My.Application.Info.Title
+      'フォームタイトル設定
+      Me.Text = My.Application.Info.ProductName & " - Ver." & My.Application.Info.Version.ToString()
 
       '各コントロールの初期化
       Me.LogListBox.Items.Clear()
@@ -136,20 +136,6 @@ Public Class MainForm
       Me.ServerListComboBox.DisplayMember = "ServerDisplayName"
 
 
-      ''設定データファイル名
-      'Dim settingDataFilename As String = Common.File.CombinePath(Common.File.GetApplicationDirectory,
-      '                                                                My.Application.Info.AssemblyName & ".setting")
-      'If Not Common.File.ExistsFile(settingDataFilename) Then
-      '  '設定ファイルが見つかりません。
-      '  Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotFound)
-      'End If
-
-      ''設定データ取得
-      'Me.ModsInfoList = Me.SettingData.GetSetting(settingDataFilename)
-
-      ''MOD情報更新
-      'Me.UpdateModTreeView()
-
     Catch ex As Exception
 
       MessageBox.Show(ex.Message,
@@ -164,21 +150,9 @@ Public Class MainForm
 
 
   ''' <summary>
-  ''' MOD情報更新
+  ''' Cponfigファイルのダウンロード＆読み込み
   ''' </summary>
-  ''' <param name="sender"></param>
-  ''' <param name="e"></param>
-  Private Sub GetModInfoButton_Click(sender As Object, e As EventArgs) Handles GetModInfoButton.Click
-    'MOD情報更新
-    Me.UpdateModTreeView()
-  End Sub
-
-  ''' <summary>
-  ''' OK Button
-  ''' </summary>
-  ''' <param name="sender"></param>
-  ''' <param name="e"></param>
-  Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
+  Private Sub DownloadConfigFile()
 
     Dim settingConfigFileName As String = Common.File.CombinePath(Common.File.GetApplicationDirectory,
                                                                    ServerSettingConfigFilename)
@@ -229,9 +203,95 @@ Public Class MainForm
       Me.Close()
     End Try
 
-
     '設定データ取得
     Me.ModsInfoList = Me.SettingData.GetSetting(settingConfigFileName)
+
+  End Sub
+
+
+
+
+
+  ''' <summary>
+  ''' MOD情報更新
+  ''' </summary>
+  ''' <param name="sender"></param>
+  ''' <param name="e"></param>
+  Private Sub GetModInfoButton_Click(sender As Object, e As EventArgs) Handles GetModInfoButton.Click
+
+    ' Cponfigファイルのダウンロード＆読み込み
+    Me.DownloadConfigFile()
+
+    'MOD情報更新
+    Me.UpdateModTreeView()
+  End Sub
+
+
+
+  ''' <summary>
+  ''' OK Button
+  ''' </summary>
+  ''' <param name="sender"></param>
+  ''' <param name="e"></param>
+  Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
+
+    ' Cponfigファイルのダウンロード＆読み込み
+    Me.DownloadConfigFile()
+
+
+
+    'Dim settingConfigFileName As String = Common.File.CombinePath(Common.File.GetApplicationDirectory,
+    '                                                               ServerSettingConfigFilename)
+
+    'Try
+    '  Dim serverInfo As ServerList.ServerInfo
+    '  serverInfo = Me.ServerListComboBox.SelectedItem
+
+    '  If Not serverInfo.SettingConfigUrl.Equals("") Then
+    '    'URLからDL
+
+    '    Me.AddLogText(My.Resources.TextResource.SettingFileDownloading)
+
+    '    If Common.File.ExistsFile(settingConfigFileName) Then
+    '      Common.File.DeleteFile(settingConfigFileName)
+    '    End If
+
+    '    'ファイルダウンロード
+    '    Dim wc As New System.Net.WebClient()
+    '    wc.DownloadFile(serverInfo.SettingConfigUrl, Common.File.CombinePath(Common.File.GetApplicationDirectory,
+    '                                                            ServerSettingConfigFilename))
+    '    wc.Dispose()
+
+    '    If Not Common.File.ExistsFile(settingConfigFileName) Then
+    '      Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotDownload)
+    '    End If
+
+    '    Me.AddLogText(My.Resources.TextResource.SettingFileDownloadComplate)
+    '    Me.AddLogText("")
+
+    '  Else
+
+    '    settingConfigFileName = Common.File.CombinePath(Common.File.GetApplicationDirectory,
+    '                                                       serverInfo.SettingConfigFilename)
+
+
+    '    If Not Common.File.ExistsFile(settingConfigFileName) Then
+    '      Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotFound)
+    '    End If
+
+    '  End If
+
+    'Catch ex As Exception
+    '  MessageBox.Show(ex.Message,
+    '          My.Application.Info.AssemblyName,
+    '          MessageBoxButtons.OK,
+    '          MessageBoxIcon.Error)
+    '  Me.Close()
+    'End Try
+
+
+    ''設定データ取得
+    'Me.ModsInfoList = Me.SettingData.GetSetting(settingConfigFileName)
 
     'MOD情報更新
     Me.UpdateModTreeView()
