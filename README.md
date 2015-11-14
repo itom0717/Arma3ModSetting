@@ -19,8 +19,9 @@ This program sets the options file for each mod of Arma3.
 ② ①で作成した設定ファイルをWebサーバーへアップする。  
    アップしたURLをブラウザのアドレス欄に入力して表示またはダウンロードできることを確認する。
 
-③ ServerList.cfg を編集する。
-   ②でアップしたURLを記載する。
+③ ServerList.cfg の編集する。
+　これはサーバ側で管理してますので、連絡をいただいたあとに編集をします。  
+　または、ServerList.cfgを自分でアップし、ServerListUrl.cfgを編集しても可能です。 
 
 ② @ace3などが存在するmodフォルダと同じところに @mod_settingフォルダ(フォルダ名は任意)を置いてArma3ModSetting.exe を実行  
 

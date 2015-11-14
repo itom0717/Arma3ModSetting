@@ -84,23 +84,21 @@ Public Class MainForm
     Me.Close()
   End Sub
 
+
   ''' <summary>
-  ''' サーバーリスト設定ファイルのファイル名
+  ''' サーバーリストURL設定ファイルのファイル名
+  ''' </summary>
+  Private Const ServerListUrlConfigFilename As String = "ServerListUrl.cfg"
+
+  ''' <summary>
+  ''' サーバーリスト設定ファイルのファイル名(DLするときに設定するファイル名)
   ''' </summary>
   Private Const ServerListConfigFilename As String = "ServerList.cfg"
 
-
   ''' <summary>
-  ''' 設定ファイルのファイル名
+  ''' 設定ファイルのファイル名(DLするときに設定するファイル名)
   ''' </summary>
   Private Const ServerSettingConfigFilename As String = "ServerSetting.cfg"
-
-  ''' <summary>
-  ''' デフォルト設定ファイルのファイル名
-  ''' </summary>
-  Private Const DefaultSettingConfigFilename As String = "DefaultSetting.cfg"
-
-
 
 
   ''' <summary>
@@ -114,8 +112,22 @@ Public Class MainForm
   Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
     Try
+      'サーバー設定データをWebから取得
+      Dim serverListUrl As New ServerListUrl
+#If DEBUG Then
+#Else
 
-      '設定データをWebから取得
+      serverListUrl.DownloadServerList(Common.File.CombinePath(Common.File.GetApplicationDirectory,
+                                       ServerListUrlConfigFilename),
+                                       Common.File.CombinePath(Common.File.GetApplicationDirectory,
+                                       ServerListConfigFilename)
+                                       )
+#End If
+
+
+
+
+      'サーバー設定データをコンボに表示
       Dim serverList As New ServerList
       serverList.GetServerList(Common.File.CombinePath(Common.File.GetApplicationDirectory,
                                                        ServerListConfigFilename))
@@ -135,6 +147,19 @@ Public Class MainForm
       Me.ServerListComboBox.SelectedIndex = 0
       Me.ServerListComboBox.DisplayMember = "ServerDisplayName"
 
+      '初期値設定
+      For i As Integer = 0 To serverList.Count - 1
+        Dim serverInfo As ServerList.ServerInfo = Me.ServerListComboBox.Items(i)
+        If Not My.Settings.SelectServer.Equals("") AndAlso serverInfo.SettingConfigUrl.Equals(My.Settings.SelectServer) Then
+          Me.ServerListComboBox.SelectedIndex = i
+          Exit For
+        End If
+        If Not My.Settings.SelectServer.Equals("") AndAlso serverInfo.SettingConfigFilename.Equals(My.Settings.SelectServer) Then
+          Me.ServerListComboBox.SelectedIndex = i
+          Exit For
+        End If
+      Next
+      '
 
     Catch ex As Exception
 
@@ -161,6 +186,8 @@ Public Class MainForm
       Dim serverInfo As ServerList.ServerInfo
       serverInfo = Me.ServerListComboBox.SelectedItem
 
+
+
       If Not serverInfo.SettingConfigUrl.Equals("") Then
         'URLからDL
 
@@ -183,6 +210,9 @@ Public Class MainForm
         Me.AddLogText(My.Resources.TextResource.SettingFileDownloadComplate)
         Me.AddLogText("")
 
+        '選択URLを記憶
+        My.Settings.SelectServer = serverInfo.SettingConfigUrl
+        My.Settings.Save()
       Else
 
         settingConfigFileName = Common.File.CombinePath(Common.File.GetApplicationDirectory,
@@ -192,6 +222,10 @@ Public Class MainForm
         If Not Common.File.ExistsFile(settingConfigFileName) Then
           Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotFound)
         End If
+
+        '選択fファイルを記憶
+        My.Settings.SelectServer = Common.File.GetFileName(settingConfigFileName)
+        My.Settings.Save()
 
       End If
 
@@ -238,64 +272,8 @@ Public Class MainForm
     ' Cponfigファイルのダウンロード＆読み込み
     Me.DownloadConfigFile()
 
-
-
-    'Dim settingConfigFileName As String = Common.File.CombinePath(Common.File.GetApplicationDirectory,
-    '                                                               ServerSettingConfigFilename)
-
-    'Try
-    '  Dim serverInfo As ServerList.ServerInfo
-    '  serverInfo = Me.ServerListComboBox.SelectedItem
-
-    '  If Not serverInfo.SettingConfigUrl.Equals("") Then
-    '    'URLからDL
-
-    '    Me.AddLogText(My.Resources.TextResource.SettingFileDownloading)
-
-    '    If Common.File.ExistsFile(settingConfigFileName) Then
-    '      Common.File.DeleteFile(settingConfigFileName)
-    '    End If
-
-    '    'ファイルダウンロード
-    '    Dim wc As New System.Net.WebClient()
-    '    wc.DownloadFile(serverInfo.SettingConfigUrl, Common.File.CombinePath(Common.File.GetApplicationDirectory,
-    '                                                            ServerSettingConfigFilename))
-    '    wc.Dispose()
-
-    '    If Not Common.File.ExistsFile(settingConfigFileName) Then
-    '      Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotDownload)
-    '    End If
-
-    '    Me.AddLogText(My.Resources.TextResource.SettingFileDownloadComplate)
-    '    Me.AddLogText("")
-
-    '  Else
-
-    '    settingConfigFileName = Common.File.CombinePath(Common.File.GetApplicationDirectory,
-    '                                                       serverInfo.SettingConfigFilename)
-
-
-    '    If Not Common.File.ExistsFile(settingConfigFileName) Then
-    '      Throw New Exception(My.Resources.TextResource.ErrMsgSettingFilesNotFound)
-    '    End If
-
-    '  End If
-
-    'Catch ex As Exception
-    '  MessageBox.Show(ex.Message,
-    '          My.Application.Info.AssemblyName,
-    '          MessageBoxButtons.OK,
-    '          MessageBoxIcon.Error)
-    '  Me.Close()
-    'End Try
-
-
-    ''設定データ取得
-    'Me.ModsInfoList = Me.SettingData.GetSetting(settingConfigFileName)
-
     'MOD情報更新
     Me.UpdateModTreeView()
-
 
     '実行確認
     If MessageBox.Show(My.Resources.TextResource.ConfirmationMessageGo,
@@ -310,6 +288,9 @@ Public Class MainForm
 
     'ログエリアクリア
     Me.LogListBox.Items.Clear()
+
+
+
 
     'バックグラウンド処理を開始する
     Me.SetBackgroundWorker.RunWorkerAsync()
