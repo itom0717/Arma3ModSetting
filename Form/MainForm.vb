@@ -114,15 +114,12 @@ Public Class MainForm
     Try
       'サーバー設定データをWebから取得
       Dim serverListUrl As New ServerListUrl
-#If DEBUG Then
-#Else
-
       serverListUrl.DownloadServerList(Common.File.CombinePath(Common.File.GetApplicationDirectory,
                                        ServerListUrlConfigFilename),
                                        Common.File.CombinePath(Common.File.GetApplicationDirectory,
                                        ServerListConfigFilename)
                                        )
-#End If
+
 
 
 
