@@ -4,6 +4,7 @@ Arma3 Mod Setting Tool
 This program sets the options file for each mod of Arma3.  
 このプログラムは Arma3 の各 modのオプションファイルを設定します。  
 
+※後継ソフトは Arma3ModOptionMover ですので、こちらをご利用ください。  
 
 ## 開発環境
  Microsoft Visual Studio Community 2015
